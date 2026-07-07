@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bqlxbt8ewhxdc"]
+
+[ext_resource type="Script" uid="uid://ceb5fj3tclkdk" path="res://Entities/npc/npc.cs" id="1_ilbrv"]
+[ext_resource type="Texture2D" uid="uid://b6f7uxl8fqjv" path="res://Entities/Player/cewek-0003.png" id="2_ilbrv"]
+[ext_resource type="Texture2D" uid="uid://dkjlsl341hmg1" path="res://Entities/npc/Sprite-0003-walk-2.png" id="3_ahp7x"]
+[ext_resource type="Texture2D" uid="uid://hi3e2hjdv3n6" path="res://Entities/npc/Sprite-0003-walk-3.png" id="4_ajism"]
+[ext_resource type="Texture2D" uid="uid://5iilmxpvn0ft" path="res://Entities/npc/Sprite-0003-walk-4.png" id="5_f65e0"]
+[ext_resource type="Texture2D" uid="uid://ctefkbkd6ohjf" path="res://Entities/npc/Sprite-0003-walk-5.png" id="6_msnyj"]
+[ext_resource type="Texture2D" uid="uid://bom1hr8gav642" path="res://Entities/npc/Sprite-0003-walk-6.png" id="7_78vhk"]
+[ext_resource type="Texture2D" uid="uid://b1etq4b5thn7d" path="res://Entities/npc/Sprite-0003-walk-7.png" id="8_wvyrw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0c8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilbrv"]
+size = Vector2(41, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvyrw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ilbrv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ahp7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ajism")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f65e0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_msnyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_78vhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wvyrw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1277080593]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ilbrv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=599605236]
+collision_layer = 0
+
+[node name="area_ngobrol" type="CollisionShape2D" parent="Area2D" unique_id=527535916]
+position = Vector2(-2, 1)
+scale = Vector2(2.21, 2.21)
+shape = SubResource("CapsuleShape2D_p0c8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785082824]
+position = Vector2(-1.5, 25.5)
+shape = SubResource("RectangleShape2D_ilbrv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=353915014]
+position = Vector2(-2.0000076, 9)
+scale = Vector2(0.31333333, 0.32)
+sprite_frames = SubResource("SpriteFrames_wvyrw")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true

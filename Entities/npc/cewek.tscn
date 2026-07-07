@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bxhkde42ru6jf"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/Cewek.cs" id="1_ogjby"]
+[ext_resource type="Texture2D" uid="uid://b6f7uxl8fqjv" path="res://Entities/Player/cewek-0003.png" id="2_6ynht"]
+[ext_resource type="Texture2D" path="res://Entities/Enemy/Sprite-0003-walk-2.png" id="3_n1d2i"]
+[ext_resource type="Texture2D" path="res://Entities/Enemy/Sprite-0003-walk-3.png" id="4_83h3q"]
+[ext_resource type="Texture2D" path="res://Entities/Enemy/Sprite-0003-walk-4.png" id="5_6qf71"]
+[ext_resource type="Texture2D" path="res://Entities/Enemy/Sprite-0003-walk-5.png" id="6_enm8w"]
+[ext_resource type="Texture2D" path="res://Entities/Enemy/Sprite-0003-walk-6.png" id="7_esn4e"]
+[ext_resource type="Texture2D" path="res://Entities/Enemy/Sprite-0003-walk-7.png" id="8_jr4rr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygrrx"]
+size = Vector2(14.322882, 7.332652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1khtw"]
+size = Vector2(57.174614, 111.22853)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqsl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6ynht")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n1d2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_83h3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6qf71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_enm8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_esn4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jr4rr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="cewek" type="Node2D" unique_id=208430312]
+
+[node name="cewek" type="CharacterBody2D" parent="." unique_id=691306449]
+position = Vector2(18.999985, 12)
+scale = Vector2(0.42833325, 0.41833347)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ogjby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cewek" unique_id=516743542]
+position = Vector2(-49.02722, 28.685213)
+scale = Vector2(3.2600014, 3.2600005)
+shape = SubResource("RectangleShape2D_ygrrx")
+
+[node name="Area2D" type="Area2D" parent="cewek" unique_id=2010946797]
+scale = Vector2(1.0000001, 1)
+collision_layer = 0
+
+[node name="zona ngobrol" type="CollisionShape2D" parent="cewek/Area2D" unique_id=225607757]
+position = Vector2(-46.69258, -27.490026)
+scale = Vector2(1.2250003, 1.2249998)
+shape = SubResource("RectangleShape2D_1khtw")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="cewek" unique_id=1411700587]
+position = Vector2(-49.02721, -9.5617485)
+scale = Vector2(0.67947483, 0.78237027)
+sprite_frames = SubResource("SpriteFrames_bqsl6")
+animation = &"walk"
+frame_progress = 0.4863262

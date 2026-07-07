@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cjcxx8nq3qfb7"]
+
+[ext_resource type="Texture2D" uid="uid://dfb36dlgnq45u" path="res://UI/chatbox.png" id="1_1prpg"]
+[ext_resource type="Script" uid="uid://du8er83wtrvx2" path="res://Entities/npc/DialogManager.cs" id="1_f5q17"]
+[ext_resource type="FontFile" uid="uid://5ys31rjmu4lp" path="res://UI/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="3_lsp7x"]
+
+[node name="DialogUI" type="Control" unique_id=2096669573 node_paths=PackedStringArray("_dialogText")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_f5q17")
+_dialogText = NodePath("ChatboxBg/DialogText")
+
+[node name="ChatboxBg" type="TextureRect" parent="." unique_id=840935104]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -26.0
+offset_right = 32.0
+offset_bottom = 38.0
+texture = ExtResource("1_1prpg")
+
+[node name="DialogText" type="RichTextLabel" parent="ChatboxBg" unique_id=566894927]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 45.0
+offset_bottom = 32.0
+theme_override_fonts/normal_font = ExtResource("3_lsp7x")

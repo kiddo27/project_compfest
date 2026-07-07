@@ -3,116 +3,79 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	// [Export] membuat variabel ini muncul di panel Inspector Godot
-	// Jadi kamu bisa mengubah kecepatannya tanpa buka script lagi
 	[Export] public float WalkSpeed = 150.0f;
-	[Export] public float RunSpeed = 250.0f;
-	[Export] public float JumpVelocity = -350.0f;
+	[Export] public float SprintSpeed = 250.0f;
 
-	// Mengambil nilai gravitasi default dari Project Settings Godot
-	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	// SAKELAR BARU: Menentukan apakah MC boleh dikendalikan pemain
+	public bool CanMove = true; 
 
-	private AnimatedSprite2D _animatedSprite;
-	private bool _isAttacking = false; // Penanda agar karakter tidak lari saat menyerang
+	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	private AnimatedSprite2D _sprite;
 
 	public override void _Ready()
 	{
-		// Mengambil referensi node AnimatedSprite2D
-		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		
-		// Mendaftarkan event/signal untuk mendeteksi kapan animasi selesai
-		_animatedSprite.AnimationFinished += OnAnimationFinished;
+		_sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
-		// 1. Memicu Serangan
-		// Syarat: Tombol ditekan, sedang tidak menyerang, dan karakter menginjak tanah
-		if (Input.IsActionJustPressed("serang") && !_isAttacking)
-		{
-			_isAttacking = true;
-			_animatedSprite.Play("attack");
-		}
-
-		// 2. Menerapkan Gravitasi (jika karakter melayang)
+		// 1. GRAVITASI (Tetap berjalan agar tidak melayang saat ngobrol di udara/turunan)
 		if (!IsOnFloor())
 		{
-			velocity.Y += gravity * (float)delta;
+			velocity.Y += Gravity * (float)delta;
 		}
 
-		// 3. Memicu Lompat
-		// Syarat: Tombol ditekan, menginjak tanah, dan sedang tidak menyerang
-		if (Input.IsActionJustPressed("lompat") && IsOnFloor())
+		// 2. CEK SAKELAR PERGERAKAN (KUNCI KAKI)
+		if (!CanMove)
 		{
-			velocity.Y = JumpVelocity;
+			// Jika tidak boleh bergerak (sedang ngobrol), paksa kecepatan X jadi 0
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, WalkSpeed);
+			_sprite.Play("idle"); // Paksa putar animasi diam
+			
+			Velocity = velocity;
+			MoveAndSlide();
+			return; // 'return' akan menghentikan pembacaan kode di bawahnya
 		}
 
-		// 4. Logika Pergerakan Kiri/Kanan
-		// GetAxis otomatis menghasilkan -1 (kiri), 1 (kanan), atau 0 (diam)
+		// ========================================================
+		// KODE DI BAWAH INI HANYA JALAN JIKA CanMove == true
+		// ========================================================
+
+		bool isSprinting = Input.IsActionPressed("lari");
+		float currentSpeed = isSprinting ? SprintSpeed : WalkSpeed;
 		float direction = Input.GetAxis("gerak_kiri", "gerak_kanan");
 
-		if (!_isAttacking) // Hanya bisa bergerak kalau tidak sedang menyerang
+		if (direction != 0)
 		{
-			if (direction != 0)
-			{
-				// Cek apakah tombol lari ditahan
-				float currentSpeed = Input.IsActionPressed("lari") ? RunSpeed : WalkSpeed;
-				velocity.X = direction * currentSpeed;
+			velocity.X = direction * currentSpeed;
 
-				// Membalikkan arah gambar (Flip) sesuai arah gerak
-				_animatedSprite.FlipH = direction < 0;
+			if (direction > 0)
+			{
+				_sprite.FlipH = true; 
+			}
+			else if (direction < 0)
+			{
+				_sprite.FlipH = false; 
+			}
+			
+			if (isSprinting)
+			{
+				_sprite.Play("run"); 
 			}
 			else
 			{
-				// Mengerem perlahan jika tombol dilepas
-				velocity.X = Mathf.MoveToward(Velocity.X, 0, WalkSpeed);
+				_sprite.Play("walk"); 
 			}
 		}
 		else
 		{
-			// Jika sedang menyerang, hentikan pergerakan X secara instan
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, WalkSpeed);
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, currentSpeed);
+			_sprite.Play("idle"); 
 		}
 
-		// Terapkan kecepatan ke sistem fisika Godot
 		Velocity = velocity;
 		MoveAndSlide();
-
-		// 5. Update Animasi
-		UpdateAnimation();
-	}
-
-	// Fungsi khusus untuk mengatur perpindahan animasi
-	private void UpdateAnimation()
-	{
-		// Jika sedang menyerang, biarkan animasi attack selesai (jangan ditimpa animasi lain)
-		if (_isAttacking) return;
-
-		if (!IsOnFloor())
-		{
-			_animatedSprite.Play("jump");
-		}
-		else if (Velocity.X != 0)
-		{
-			// Jika ada kecepatan berjalan/lari, mainkan animasi run
-			_animatedSprite.Play("run");
-		}
-		else
-		{
-			// Jika diam di lantai
-			_animatedSprite.Play("idle");
-		}
-	}
-
-	// Fungsi ini terpanggil otomatis saat animasi apapun mencapai frame terakhir
-	private void OnAnimationFinished()
-	{
-		if (_animatedSprite.Animation == "attack")
-		{
-			// Bebaskan karakter setelah animasi serangan selesai
-			_isAttacking = false; 
-		}
 	}
 }
