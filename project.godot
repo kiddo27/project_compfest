@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="2d_romance"
-config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
+run/main_scene="uid://dsmj2lfa0ora2"
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=2560
+window/size/viewport_height=1600
 window/stretch/mode="viewport"
 
 [dotnet]
