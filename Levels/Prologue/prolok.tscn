@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bw7kgwkvyiys3"]
+
+[ext_resource type="Texture2D" uid="uid://cbjxjkkfnn5v5" path="res://Levels/Prologue/Bg/BG 1.png" id="1_0ihgf"]
+[ext_resource type="Script" uid="uid://ricsij4tnqn1" path="res://Levels/Prologue/Prolok.cs" id="1_d2q1u"]
+[ext_resource type="Texture2D" uid="uid://bkn8f6w5fcgyp" path="res://Levels/Prologue/Char/no bg cwo.png" id="3_d2q1u"]
+[ext_resource type="Script" uid="uid://rypa86cwhrjf" path="res://Levels/Prologue/Kedips.cs" id="4_h1dno"]
+[ext_resource type="Texture2D" uid="uid://dyovpgtby4ffn" path="res://Levels/Prologue/Char/no bg.png" id="4_u3nte"]
+[ext_resource type="Texture2D" uid="uid://b5bua0tscmn0f" path="res://Levels/Prologue/Char/no bg cowo 2.png" id="5_u27fl"]
+[ext_resource type="Texture2D" uid="uid://bb1talpcid0gu" path="res://Levels/Prologue/Char/no bg cowo 1.png" id="6_apul5"]
+[ext_resource type="Texture2D" uid="uid://hhs5glxamdqk" path="res://Levels/Prologue/Char/Sprite-0003.png" id="7_pmnpb"]
+[ext_resource type="Texture2D" uid="uid://bb74iufkoo5ui" path="res://Levels/Prologue/Char/no bg 2.png" id="8_ug4dk"]
+[ext_resource type="Texture2D" uid="uid://cn62dey0u3aio" path="res://Levels/Prologue/Char/no bg 1.png" id="9_pmnpb"]
+[ext_resource type="Script" uid="uid://xc0wnpwn8xsx" path="res://Levels/Prologue/SistemDialog.cs" id="11_sxbcf"]
+[ext_resource type="Texture2D" uid="uid://c1jl82schgjtq" path="res://Levels/Prologue/Char/co mangap 1.png" id="12_06kfn"]
+[ext_resource type="Texture2D" uid="uid://wlc6dts5mrh4" path="res://Levels/Prologue/Char/co mangap 2.png" id="13_pmkxi"]
+[ext_resource type="Texture2D" uid="uid://bqt1hn47eu3xx" path="res://Levels/Prologue/Char/ce mangap 1.png" id="14_o8xay"]
+[ext_resource type="Texture2D" uid="uid://mihepjve52id" path="res://Levels/Prologue/Char/ce mangap 2.png" id="15_gv2vc"]
+
+[node name="Control" type="Control" unique_id=2077279622]
+layout_mode = 3
+anchor_right = 0.99375
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d2q1u")
+
+[node name="Bg1" type="TextureRect" parent="." unique_id=860867019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0ihgf")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1791374154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 411.47876
+offset_bottom = 164.45386
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.783246, 0.9096299)
+texture = ExtResource("3_d2q1u")
+script = ExtResource("4_h1dno")
+FrameTerbuka = ExtResource("3_d2q1u")
+FrameSetengah = ExtResource("5_u27fl")
+FrameMerem = ExtResource("6_apul5")
+
+[node name="KotakCowok" type="TextureRect" parent="TextureRect" unique_id=1514542236]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1354.619
+offset_top = -1020.7448
+offset_right = 219.599
+offset_bottom = -361.5667
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_pmnpb")
+
+[node name="TextCowok" type="Label" parent="TextureRect/KotakCowok" unique_id=909199795]
+layout_mode = 0
+offset_left = 366.42383
+offset_top = 173.69702
+offset_right = 1230.7754
+offset_bottom = 339.6986
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1081137940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9268465, 1)
+texture = ExtResource("4_u3nte")
+script = ExtResource("4_h1dno")
+FrameTerbuka = ExtResource("4_u3nte")
+FrameSetengah = ExtResource("8_ug4dk")
+FrameMerem = ExtResource("9_pmnpb")
+JedaMin = 3.0
+JedaMax = 6.0
+
+[node name="KotakCewek" type="TextureRect" parent="TextureRect2" unique_id=932037441]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -653.6168
+offset_top = -738.0
+offset_right = 619.5172
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_pmnpb")
+
+[node name="TextCewek" type="Label" parent="TextureRect2/KotakCewek" unique_id=1266200163]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.020000001
+anchor_right = -0.020000001
+offset_left = 324.32553
+offset_top = 165.0
+offset_right = 1015.9179
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+autowrap_mode = 2
+
+[node name="DialogManager" type="Node" parent="." unique_id=1464377379 node_paths=PackedStringArray("KotakCowok", "KotakCewek", "LabelCowok", "LabelCewek", "MulutCowok", "MulutCewek")]
+script = ExtResource("11_sxbcf")
+KotakCowok = NodePath("../TextureRect/KotakCowok")
+KotakCewek = NodePath("../TextureRect2/KotakCewek")
+LabelCowok = NodePath("../TextureRect/KotakCowok/TextCowok")
+LabelCewek = NodePath("../TextureRect2/KotakCewek/TextCewek")
+MulutCowok = NodePath("../TextureRect")
+MulutCewek = NodePath("../TextureRect2")
+FrameMulutCowok = Array[Texture2D]([ExtResource("3_d2q1u"), ExtResource("12_06kfn"), ExtResource("13_pmkxi")])
+FrameMulutCewek = Array[Texture2D]([ExtResource("4_u3nte"), ExtResource("14_o8xay"), ExtResource("15_gv2vc")])
