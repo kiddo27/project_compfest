@@ -1,20 +1,82 @@
 [gd_scene format=3 uid="uid://bw7kgwkvyiys3"]
 
-[ext_resource type="Texture2D" uid="uid://cbjxjkkfnn5v5" path="res://Levels/Prologue/Bg/BG 1.png" id="1_0ihgf"]
 [ext_resource type="Script" uid="uid://ricsij4tnqn1" path="res://Levels/Prologue/Prolok.cs" id="1_d2q1u"]
+[ext_resource type="Texture2D" uid="uid://dmr4gm27cir07" path="res://Levels/Prologue/Bg/Tak berjudul7_20260723053839.jpg" id="2_06kfn"]
 [ext_resource type="Texture2D" uid="uid://bkn8f6w5fcgyp" path="res://Levels/Prologue/Char/no bg cwo.png" id="3_d2q1u"]
+[ext_resource type="Texture2D" uid="uid://h434j11rrqib" path="res://Levels/Prologue/Bg/awan lain4_20260725175120.png" id="3_q4y78"]
+[ext_resource type="Texture2D" uid="uid://c3syj276r8dy1" path="res://Levels/Prologue/Bg/awan lain3_20260725171833.png" id="4_fsvp6"]
 [ext_resource type="Script" uid="uid://rypa86cwhrjf" path="res://Levels/Prologue/Kedips.cs" id="4_h1dno"]
 [ext_resource type="Texture2D" uid="uid://dyovpgtby4ffn" path="res://Levels/Prologue/Char/no bg.png" id="4_u3nte"]
+[ext_resource type="Texture2D" uid="uid://buah07hw13370" path="res://Levels/Prologue/Bg/awan lain3_20260725171730.png" id="5_tgs1s"]
 [ext_resource type="Texture2D" uid="uid://b5bua0tscmn0f" path="res://Levels/Prologue/Char/no bg cowo 2.png" id="5_u27fl"]
 [ext_resource type="Texture2D" uid="uid://bb1talpcid0gu" path="res://Levels/Prologue/Char/no bg cowo 1.png" id="6_apul5"]
+[ext_resource type="Script" uid="uid://dvcupya0voc38" path="res://Levels/Prologue/AwanBergerak.cs" id="6_ghuja"]
+[ext_resource type="Texture2D" uid="uid://bfc3db7aramot" path="res://Levels/Prologue/Bg/Awan 4_20260725163440.png" id="7_dcj78"]
 [ext_resource type="Texture2D" uid="uid://hhs5glxamdqk" path="res://Levels/Prologue/Char/Sprite-0003.png" id="7_pmnpb"]
+[ext_resource type="Texture2D" uid="uid://5qv0bae3lc25" path="res://Levels/Prologue/Bg/Awan 3_20260724130103.png" id="8_j4fbf"]
 [ext_resource type="Texture2D" uid="uid://bb74iufkoo5ui" path="res://Levels/Prologue/Char/no bg 2.png" id="8_ug4dk"]
+[ext_resource type="Texture2D" uid="uid://cvy8tbsdq1txd" path="res://Levels/Prologue/Bg/Awan 2_20260725170744.png" id="9_nnfq6"]
 [ext_resource type="Texture2D" uid="uid://cn62dey0u3aio" path="res://Levels/Prologue/Char/no bg 1.png" id="9_pmnpb"]
+[ext_resource type="Texture2D" uid="uid://dqm5nqec4w1vf" path="res://Levels/Prologue/Bg/Tak berjudul9_20260723200343.png" id="10_y7gq3"]
+[ext_resource type="Texture2D" uid="uid://b4mtni34c8kay" path="res://Levels/Prologue/Bg/Tak berjudul9_20260723200102.png" id="11_m5okh"]
 [ext_resource type="Script" uid="uid://xc0wnpwn8xsx" path="res://Levels/Prologue/SistemDialog.cs" id="11_sxbcf"]
 [ext_resource type="Texture2D" uid="uid://c1jl82schgjtq" path="res://Levels/Prologue/Char/co mangap 1.png" id="12_06kfn"]
+[ext_resource type="Texture2D" uid="uid://nck73447vd45" path="res://Levels/Prologue/Bg/Tak berjudul5.png" id="12_sq1nu"]
 [ext_resource type="Texture2D" uid="uid://wlc6dts5mrh4" path="res://Levels/Prologue/Char/co mangap 2.png" id="13_pmkxi"]
+[ext_resource type="Texture2D" uid="uid://dtt7v468u4ixd" path="res://Levels/Prologue/Bg/Tak berjudul35_20260710162629.png" id="13_pnmc1"]
 [ext_resource type="Texture2D" uid="uid://bqt1hn47eu3xx" path="res://Levels/Prologue/Char/ce mangap 1.png" id="14_o8xay"]
 [ext_resource type="Texture2D" uid="uid://mihepjve52id" path="res://Levels/Prologue/Char/ce mangap 2.png" id="15_gv2vc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6lqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q4y78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fsvp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tgs1s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy5on"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_dcj78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j4fbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nnfq6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj8ai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_y7gq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m5okh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sq1nu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control" unique_id=2077279622]
 layout_mode = 3
@@ -25,23 +87,58 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d2q1u")
 
-[node name="Bg1" type="TextureRect" parent="." unique_id=860867019]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_0ihgf")
-expand_mode = 1
+[node name="Camera2D" type="Camera2D" parent="." unique_id=181609579]
+position = Vector2(962, 538)
+
+[node name="langit" type="Sprite2D" parent="." unique_id=778317840]
+position = Vector2(963, 364.5)
+scale = Vector2(1.0104166, 0.69722223)
+texture = ExtResource("2_06kfn")
+
+[node name="awan 1" type="AnimatedSprite2D" parent="langit" unique_id=1096369217]
+position = Vector2(621.5259, -2.1513977)
+scale = Vector2(0.4181908, 0.60269755)
+sprite_frames = SubResource("SpriteFrames_c6lqs")
+frame_progress = 0.5960378
+script = ExtResource("6_ghuja")
+Kecepatan = 50.0
+BatasKanan = 1107.464
+BatasKiri = -1126.268
+
+[node name="awan 2" type="AnimatedSprite2D" parent="langit" unique_id=670667490]
+position = Vector2(81.77053, -7.672138)
+scale = Vector2(0.5087616, 0.90742767)
+sprite_frames = SubResource("SpriteFrames_dy5on")
+frame_progress = 0.6696674
+script = ExtResource("6_ghuja")
+Kecepatan = 70.0
+BatasKanan = 1125.278
+BatasKiri = -1118.35
+
+[node name="awan 3" type="AnimatedSprite2D" parent="langit" unique_id=1848198053]
+position = Vector2(-716.53613, -129.80078)
+scale = Vector2(0.5362661, 0.84271455)
+sprite_frames = SubResource("SpriteFrames_cj8ai")
+frame_progress = 0.08478914
+script = ExtResource("6_ghuja")
+Kecepatan = 67.0
+BatasKanan = 1070.845
+BatasKiri = -1212.371
+
+[node name="tanah" type="Sprite2D" parent="." unique_id=67142750]
+position = Vector2(964.99994, 694)
+scale = Vector2(1.3143684, 0.94353855)
+texture = ExtResource("13_pnmc1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1791374154]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 411.47876
-offset_bottom = 164.45386
+offset_left = -60.999996
+offset_top = 250.00003
+offset_right = -14.668213
+offset_bottom = 96.74219
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.783246, 0.9096299)
@@ -58,22 +155,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1354.619
-offset_top = -1020.7448
-offset_right = 219.599
-offset_bottom = -361.5667
+offset_left = -893.6245
+offset_top = -771.18866
+offset_right = 219.7832
+offset_bottom = -185.67102
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_pmnpb")
 
 [node name="TextCowok" type="Label" parent="TextureRect/KotakCowok" unique_id=909199795]
 layout_mode = 0
-offset_left = 366.42383
-offset_top = 173.69702
-offset_right = 1230.7754
-offset_bottom = 339.6986
+offset_left = 271.94528
+offset_top = 155.00813
+offset_right = 856.6914
+offset_bottom = 286.92993
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 46
+theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1081137940]
@@ -81,6 +178,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 185.0
+offset_right = -213.20142
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9268465, 1)
@@ -93,16 +192,17 @@ JedaMin = 3.0
 JedaMax = 6.0
 
 [node name="KotakCewek" type="TextureRect" parent="TextureRect2" unique_id=932037441]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -653.6168
-offset_top = -738.0
-offset_right = 619.5172
-offset_bottom = -133.0
+offset_left = -217.14789
+offset_top = -619.5
+offset_right = 721.5188
+offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_pmnpb")
@@ -112,12 +212,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.020000001
 anchor_right = -0.020000001
-offset_left = 324.32553
-offset_top = 165.0
-offset_right = 1015.9179
+offset_left = 261.532
+offset_top = 177.0
+offset_right = 734.1022
 offset_bottom = 310.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
 
 [node name="DialogManager" type="Node" parent="." unique_id=1464377379 node_paths=PackedStringArray("KotakCowok", "KotakCewek", "LabelCowok", "LabelCewek", "MulutCowok", "MulutCewek")]
